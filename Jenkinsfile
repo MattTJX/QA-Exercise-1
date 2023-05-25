@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-      stage('Pre-build clean-up) {
+      stage('Pre-build clean-up') {
             steps {
               
               docker stop $(docker ps -q)
