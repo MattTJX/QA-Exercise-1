@@ -31,7 +31,7 @@ pipeline {
         stage('Test') {
             steps {
                 //
-                sh 'curl 35.230.151.94'
+                sh 'curl 35.230.151.94:5500'
             }
         }
     }
