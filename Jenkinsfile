@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh 'docker network create duo-net'
                 sh 'docker build -t duo-app:v2 .'
-                sh 'docker run -d -p --network duo-net --name flask-app duo-app:v2'
+                sh 'docker run -d --network duo-net --name flask-app duo-app:v2'
                 sh 'docker run -d -p 80:80 --mount type=bind,source=$(pwd)/nginx.conf,target=/etc/nginx/nginx.conf --network duo-net --name nginx nginx:alpine'
                 sh 'docker images' //
             }
