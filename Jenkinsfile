@@ -1,7 +1,14 @@
 pipeline {
     agent any
+
     stages {
-      stage('Pre-build clean-up') {
+        stage('Clone repo') {
+
+            steps {
+                git url: 'https://github.com/MattTJX/QA-Exercise-1', branch: master
+            }
+        }
+        stage('Pre-build clean-up') {
             steps {
               
               docker stop $(docker ps -q)
@@ -9,7 +16,7 @@ pipeline {
               docker rmi $(docker images -aq)
              
             }
-         }  
+        }  
         stage('Build') {
             steps {
                 docker build -t duo-app:v2
@@ -28,3 +35,4 @@ pipeline {
         }
     }
 }
+
