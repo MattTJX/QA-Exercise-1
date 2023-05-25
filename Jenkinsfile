@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 docker build -t duo-app:v2
-                docker images
+                docker images //
             }
         }
         stage('Deploy') {
