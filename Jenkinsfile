@@ -8,6 +8,7 @@ pipeline {
               sh 'docker stop $(docker ps -q)'
               sh 'docker rm $(docker ps -aq)'
               sh 'docker rmi $(docker images -aq)'
+              sh 'docker network rm duo-net'
              
             }
         }  
