@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Pre-build clean-up') {
             steps {
-              
-              sh 'sudo docker system prune -f'
+             
               sh 'docker stop $(docker ps -q)'
               sh 'docker rm $(docker ps -aq)'
               sh 'docker rmi $(docker images -aq)'
