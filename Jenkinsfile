@@ -11,7 +11,8 @@ pipeline {
               
         stage('Build') {
             steps {
-                // 
+                docker build -t duo-app:v2
+                docker images
             }
         }
         stage('Test') {
