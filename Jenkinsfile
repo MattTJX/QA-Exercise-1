@@ -11,16 +11,17 @@ pipeline {
         stage('Pre-build clean-up') {
             steps {
               
-              docker stop $(docker ps -q)
-              docker rm $(docker ps -aq)
-              docker rmi $(docker images -aq)
+              sh 'docker system prune -f'
+              sh 'docker stop $(docker ps -q)'
+              sh 'docker rm $(docker ps -aq)'
+              sh 'docker rmi $(docker images -aq)'
              
             }
         }  
         stage('Build') {
             steps {
-                docker build -t duo-app:v2
-                docker images //
+                sh 'docker build -t duo-app:v2'
+                sh 'docker images' //
             }
         }
         stage('Deploy') {
