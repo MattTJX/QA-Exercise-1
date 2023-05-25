@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone repo') {
-
-            steps {
-                git url: 'https://github.com/MattTJX/QA-Exercise-1', branch: master
-            }
-        }
         stage('Pre-build clean-up') {
             steps {
               
